@@ -45,15 +45,11 @@ ENV CONDA_DEFAULT_ENV=py37
 ENV CONDA_PREFIX=/root/anaconda3/envs/$CONDA_DEFAULT_ENV
 ENV PATH=$CONDA_PREFIX/bin:$PATH
 
-RUN conda install -y conda-build && conda clean -ya
+RUN conda install -y conda-build
+RUN conda install -c anaconda setuptools pip && conda clean -ya
+RUN conda install -c conda-forge nodejs jupyterlab ipywidgets && conda clean -ya
 
-RUN pip --no-cache-dir install --upgrade \
-        pip \
-        setuptools
 
-RUN pip --no-cache-dir install jupyterlab
-RUN conda install -c conda-forge nodejs
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN python -m jupyter notebook --generate-config
 COPY ./.bashrc /root
 COPY ./jupyter_notebook_config.py /root/.jupyter/
