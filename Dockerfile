@@ -48,6 +48,7 @@ ENV PATH=$CONDA_PREFIX/bin:$PATH
 RUN conda install -y conda-build
 RUN conda install -y -c anaconda setuptools pip
 RUN conda install -y -c conda-forge nodejs jupyterlab ipywidgets && conda clean -ya
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 
 RUN python -m jupyter notebook --generate-config
