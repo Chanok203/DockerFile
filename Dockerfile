@@ -46,7 +46,7 @@ ENV CONDA_PREFIX=/root/anaconda3/envs/$CONDA_DEFAULT_ENV
 ENV PATH=$CONDA_PREFIX/bin:$PATH
 
 RUN conda install -y conda-build
-RUN conda install -y -c anaconda setuptools pip && conda clean -ya
+RUN conda install -y -c anaconda setuptools pip
 RUN conda install -y -c conda-forge nodejs jupyterlab ipywidgets && conda clean -ya
 
 
