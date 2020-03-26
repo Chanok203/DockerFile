@@ -1,4 +1,4 @@
-conda install -y pytorch torchvision cudatoolkit=10.1 -c pytorch && \
-conda install -y -c anaconda tensorflow-gpu==1.15 scikit-image pandas && \
+conda install -y -c pytorch torchvision cudatoolkit=10.1 && \
+conda install -y -c anaconda tensorflow-gpu scikit-image pandas && \
 conda install -y -c conda-forge opencv matplotlib && \
 conda clean -y --all
