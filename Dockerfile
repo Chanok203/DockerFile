@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 LABEL maintainer "pathompatai_c@silpakorn.edu"
 
@@ -38,10 +38,10 @@ RUN curl -O https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh 
 ENV PATH=/root/anaconda3/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
-RUN conda create -y --name py37 python=3.7 \
+RUN conda create -y --name py36 python=3.6 \
         && conda clean -ya
 
-ENV CONDA_DEFAULT_ENV=py37
+ENV CONDA_DEFAULT_ENV=py36
 ENV CONDA_PREFIX=/root/anaconda3/envs/$CONDA_DEFAULT_ENV
 ENV PATH=$CONDA_PREFIX/bin:$PATH
 
