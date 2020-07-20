@@ -98,4 +98,4 @@ fi
 #    . /etc/bash_completion
 #fi
 
-export PS1="\[$(tput bold)$(tput setaf 2)\]\u@\h : \W $ $(tput sgr0)$(tput setaf 3)\]"
+export PS1="\[$(tput bold)\]\u@\h : \W $ \[$(tput sgr0)\]"
