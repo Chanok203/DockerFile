@@ -56,7 +56,14 @@ COPY ./.bashrc /root
 COPY ./jupyter_notebook_config.py /root/.jupyter/
 
 RUN mkdir /notebooks
+RUN mkdir /notebooks/Test-Code
+
+WORKDIR /notebooks/Test-Code
+COPY ./tensorflow.ipynb ./
+COPY ./pytorch.ipynb ./
+
 WORKDIR /notebooks
+
 
 # TensorBoard
 EXPOSE 6006
