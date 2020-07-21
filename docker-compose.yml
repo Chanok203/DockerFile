@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  test:
+    image: chanok203/base:cuda10.1-cudnn7
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    restart: always
+    ports:
+      - 8010:8888
+    volumes:
+      - /home/chanok/VOLUME:/notebooks/VOLUME
+
