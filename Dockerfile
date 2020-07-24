@@ -1,6 +1,6 @@
 # Python 3.8 and Cuda 10.1
 
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 
 LABEL maintainer "pathompatai_c@silpakorn.edu"
 
