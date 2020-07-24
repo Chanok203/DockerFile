@@ -1,4 +1,4 @@
-# Python 3.5 and Cuda 10.0
+# Python 3.8 and Cuda 10.1
 
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
@@ -39,9 +39,9 @@ RUN wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh \
 ENV PATH=/root/anaconda3/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
-RUN conda create -y --name py35 python=3.5
+RUN conda create -y --name py38 python=3.8
 
-ENV CONDA_DEFAULT_ENV=py35
+ENV CONDA_DEFAULT_ENV=py38
 ENV CONDA_PREFIX=/root/anaconda3/envs/$CONDA_DEFAULT_ENV
 ENV PATH=$CONDA_PREFIX/bin:$PATH
 
