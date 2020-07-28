@@ -1,6 +1,8 @@
-# Python 3.8 and Cuda 10.1
+ARG python_version=3.5 
+ARG cuda_version=10.1
 
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+
+FROM nvidia/cuda:${cuda_version}}-cudnn7-devel-ubuntu18.04
 
 LABEL maintainer "pathompatai_c@silpakorn.edu"
 
@@ -39,9 +41,9 @@ RUN wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh \
 ENV PATH=/root/anaconda3/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
-RUN conda create -y --name py38 python=3.8
+RUN conda create -y --name python_env python=${python_version}
 
-ENV CONDA_DEFAULT_ENV=py38
+ENV CONDA_DEFAULT_ENV=python_env
 ENV CONDA_PREFIX=/root/anaconda3/envs/$CONDA_DEFAULT_ENV
 ENV PATH=$CONDA_PREFIX/bin:$PATH
 
@@ -73,4 +75,4 @@ EXPOSE 5000
 # WEB PRODUCTION
 EXPOSE 80
 
-CMD ["bash","-c","python -m jupyter lab --port 8888 --ip 0.0.0.0 --no-browser --allow-root"]
+CMD ["bash", "-c", "python -m jupyter lab --port 8888 --ip 0.0.0.0 --no-browser --allow-root"]
