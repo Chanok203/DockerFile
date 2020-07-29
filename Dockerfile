@@ -2,7 +2,7 @@ ARG python_version=3.5
 ARG cuda_version=10.1
 
 
-FROM nvidia/cuda:${cuda_version}}-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:${cuda_version}-cudnn7-devel-ubuntu18.04
 
 LABEL maintainer "pathompatai_c@silpakorn.edu"
 
