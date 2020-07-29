@@ -1,5 +1,5 @@
 ARG python_version=3.5 
-ARG cuda_version=10.1
+ARG cuda_version=10.0
 
 
 FROM nvidia/cuda:${cuda_version}-cudnn7-devel-ubuntu18.04
