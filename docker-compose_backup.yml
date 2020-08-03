@@ -1,0 +1,17 @@
+version: "2.4"
+services:
+  root:
+    image: chanok203/base:cuda10.1-py38
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    restart: always
+    ports:
+      - 8010:8888
+      - 8011:6006
+    volumes:
+      - /home/phitchapha/VOLUME:/notebooks/VOLUME
+      - /home/phitchapha/m2/VOLUME:/notebooks/m2_1TB
+      - /home/phitchapha/sdb/VOLUME:/notebooks/sdb_250GB
+      - /home/phitchapha/sdc/VOLUME:/notebooks/sdc_1TB
+      - /home/phitchapha/sdd/VOLUME:/notebooks/sdd_1.5TB

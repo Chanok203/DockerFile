@@ -1,13 +1,32 @@
 version: "2.4"
 services:
-  test:
-    image: chanok203/base:cuda10.1-cudnn7
+  root:
+    image: chanok203/base:cuda10.1-py37
     runtime: nvidia
     environment:
-      - NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_VISIBLE_DEVICES=0,1
     restart: always
     ports:
-      - 8010:8888
+      - 8000:8888
     volumes:
-      - /home/chanok/VOLUME:/notebooks/VOLUME
+      - /home/spresearch/VOLUME:/notebooks/VOLUME
+      - /home/spresearch/m2/VOLUME:/notebooks/m2_1TB
+      - /home/spresearch/sdb/VOLUME:/notebooks/sdb_250GB
+      - /home/spresearch/sdc/VOLUME:/notebooks/sdc_1TB
+      - /home/spresearch/sdd/VOLUME:/notebooks/sdd_1.5TB
 
+  VOL_8001:
+    image: chanok203/base:cuda10.1-py38
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=1
+    restart: always
+    ports:
+      - 8001:8888
+      - 8002:5000
+    volumes:
+      - /home/spresearch/VOLUME/VOL_8001:/notebooks/VOLUME
+      - /home/spresearch/m2/VOLUME/VOL_8001:/notebooks/m2_1TB
+      - /home/spresearch/sdb/VOLUME/VOL_8001:/notebooks/sdb_250GB
+      - /home/spresearch/sdc/VOLUME/VOL_8001:/notebooks/sdc_1TB
+      - /home/spresearch/sdd/VOLUME/VOL_8001:/notebooks/sdd_1.5TB
